@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://4yhtrpl6uxh2"]
+
+[ext_resource type="Script" path="res://levels/level.gd" id="1_1iibj"]
+[ext_resource type="PackedScene" uid="uid://bhn22jibfqmsn" path="res://Objects/gate.tscn" id="3_3oo1p"]
+[ext_resource type="PackedScene" uid="uid://bpphko1fy2wbr" path="res://Minions/player.tscn" id="4_562r0"]
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_1iibj")
+
+[node name="Gate" parent="." instance=ExtResource("3_3oo1p")]
+position = Vector2(538, -602)
+
+[node name="Player" parent="." instance=ExtResource("4_562r0")]
+position = Vector2(431, 568)
+
+[node name="Projectiles" type="Node2D" parent="."]
+
+[connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
+[connection signal="shootGrenade" from="Player" to="." method="_on_player_shoot_grenade"]
+[connection signal="shootLaser" from="Player" to="." method="_on_player_shoot_laser"]
