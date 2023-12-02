@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://4yhtrpl6uxh2"]
+[gd_scene load_steps=17 format=3 uid="uid://4yhtrpl6uxh2"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_1iibj"]
 [ext_resource type="Texture2D" uid="uid://ox2rb4x4bo2j" path="res://resources/graphics/ground/stones.png" id="2_860bk"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bv1dgc3bpx8fw" path="res://resources/graphics/tilesets/outside_walls.png" id="9_jv8wf"]
 [ext_resource type="Texture2D" uid="uid://cpdalrqui1jie" path="res://resources/graphics/decals/moss/moss_5.png" id="10_7uo4s"]
 [ext_resource type="Texture2D" uid="uid://bg0p5xjlpuuln" path="res://resources/graphics/tilesets/soil.png" id="10_lvfwv"]
+[ext_resource type="PackedScene" uid="uid://duxsjp5ec3ef" path="res://levels/house.tscn" id="13_pesg5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdwb4"]
 resource_name = "walls"
@@ -116,6 +117,10 @@ position_smoothing_enabled = true
 position_smoothing_speed = 50.0
 
 [node name="Projectiles" type="Node2D" parent="."]
+
+[node name="House" parent="." instance=ExtResource("13_pesg5")]
+position = Vector2(-2412, 4697)
+rotation = 3.94968
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="shootGrenade" from="Player" to="." method="_on_player_shoot_grenade"]
