@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://4yhtrpl6uxh2"]
+[gd_scene load_steps=18 format=3 uid="uid://4yhtrpl6uxh2"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_1iibj"]
 [ext_resource type="Texture2D" uid="uid://ox2rb4x4bo2j" path="res://resources/graphics/ground/stones.png" id="2_860bk"]
+[ext_resource type="PackedScene" uid="uid://b1d5nksrhqin3" path="res://Objects/steam_vent.tscn" id="2_f0rua"]
 [ext_resource type="PackedScene" uid="uid://bhn22jibfqmsn" path="res://Objects/gate.tscn" id="3_3oo1p"]
 [ext_resource type="Texture2D" uid="uid://dme6ndg4138xa" path="res://resources/graphics/decals/dirt_patch.png" id="3_46k0g"]
 [ext_resource type="PackedScene" uid="uid://bpphko1fy2wbr" path="res://Minions/player.tscn" id="4_562r0"]
@@ -105,6 +106,13 @@ layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array(-65539, 131072, 0, -65540, 65536, 0, -65541, 65536, 0, -65542, 65536, 0, -65543, 65536, 1, -7, 0, 2, 65529, 0, 2, 131065, 0, 2, 196601, 0, 2, 262137, 0, 3, -131065, 65536, 0, -131064, 65536, 0, -65531, 65536, 0, -65530, 131072, 2, -131066, 65536, 1, -131063, 131072, 1, -65527, 0, 2, 9, 0, 2, 65545, 0, 2, 131081, 0, 2, 196617, 0, 2, 262153, 0, 2, 327689, 0, 3)
 
+[node name="House" parent="Ground" instance=ExtResource("13_pesg5")]
+position = Vector2(-2412, 4697)
+rotation = -2.33351
+
+[node name="SteamVent" parent="Ground" instance=ExtResource("2_f0rua")]
+position = Vector2(114, 425)
+
 [node name="Gate" parent="." instance=ExtResource("3_3oo1p")]
 position = Vector2(538, -602)
 
@@ -117,10 +125,6 @@ position_smoothing_enabled = true
 position_smoothing_speed = 50.0
 
 [node name="Projectiles" type="Node2D" parent="."]
-
-[node name="House" parent="." instance=ExtResource("13_pesg5")]
-position = Vector2(-2412, 4697)
-rotation = 3.94968
 
 [connection signal="player_entered_gate" from="Gate" to="." method="_on_gate_player_entered_gate"]
 [connection signal="shootGrenade" from="Player" to="." method="_on_player_shoot_grenade"]

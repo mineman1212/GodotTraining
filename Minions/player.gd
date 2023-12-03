@@ -27,6 +27,8 @@ func _process(_delta):
 		$laserTimer.start()
 		#emit position that was selected
 		shootLaser.emit(selected_laser.global_position, Playerdirection)
+		$GPUParticles2D.emitting = true
+		
 	
 	if Input.is_action_pressed("secondary action") and can_grenade:
 		var pos = $LaserStartPositions.get_children()[0].global_position
