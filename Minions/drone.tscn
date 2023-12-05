@@ -9,6 +9,9 @@ func _process(_delta):
 	var direction = Vector2.RIGHT
 	velocity = direction * 100
 	move_and_slide()
+
+func hit():
+	print('damage')
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hq3j1"]

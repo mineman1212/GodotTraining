@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://4yhtrpl6uxh2"]
+[gd_scene load_steps=20 format=3 uid="uid://4yhtrpl6uxh2"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_1iibj"]
 [ext_resource type="Texture2D" uid="uid://ox2rb4x4bo2j" path="res://resources/graphics/ground/stones.png" id="2_860bk"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://bg0p5xjlpuuln" path="res://resources/graphics/tilesets/soil.png" id="10_lvfwv"]
 [ext_resource type="PackedScene" uid="uid://c6modhd64w1v" path="res://Objects/light_fan_animation.tscn" id="13_1tdej"]
 [ext_resource type="PackedScene" uid="uid://duxsjp5ec3ef" path="res://levels/house.tscn" id="13_pesg5"]
+[ext_resource type="PackedScene" uid="uid://b5p16gnuqwyk6" path="res://Minions/drone.tscn" id="16_lq4lc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kdwb4"]
 resource_name = "walls"
@@ -133,6 +134,9 @@ position_smoothing_speed = 50.0
 
 [node name="Projectiles" type="Node2D" parent="."]
 metadata/_edit_lock_ = true
+
+[node name="drone" parent="." instance=ExtResource("16_lq4lc")]
+position = Vector2(1318, 585)
 
 [connection signal="player_entered" from="Ground/House" to="." method="_on_house_player_entered"]
 [connection signal="player_exited" from="Ground/House" to="." method="_on_house_player_exited"]

@@ -5,7 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_07a3e"]
 radius = 6.0
-height = 86.0
+height = 72.0
 
 [node name="laser" type="Area2D"]
 collision_layer = 8
@@ -17,4 +17,12 @@ position = Vector2(-1, 36)
 texture = ExtResource("1_q2gkr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_07a3e")
+
+[node name="laserLife" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="laserLife" to="." method="_on_laser_life_timeout"]
